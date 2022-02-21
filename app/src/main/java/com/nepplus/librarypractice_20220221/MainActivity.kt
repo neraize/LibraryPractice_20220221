@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
     fun setValues() {
 
         // Glide
-        Glide.with(this).load("https://www.seoulfn.com/news/photo/202011/402433_179420_519.gif").into(imgActivity)
-
+        Glide.with(this).load("https://d3n24gmmpz5ort.cloudfront.net/2021/02/5cb6fd7f9fbdeab4612318a56dd14014/3.jpg").into(imgActivity)
     }
 }
