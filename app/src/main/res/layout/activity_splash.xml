@@ -8,9 +8,16 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <ImageView
+<!--    <ImageView-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:src="@mipmap/ic_launcher"/>-->
+
+    <com.airbnb.lottie.LottieAnimationView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@mipmap/ic_launcher"/>
+        app:lottie_rawRes="@raw/flying_plane"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
 
 </LinearLayout>
