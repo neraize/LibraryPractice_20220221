@@ -20,12 +20,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun setupEvents(){
+    fun setupEvents() {
 
         // 버튼 이외의, TextView, ImageView, LinearLayout 등등도  setOnClickListener로 이벤트 처리 가능함
         imgProfile.setOnClickListener {
             // 사진을 크게보는 액티비티로 이동
-            val myIntent =  Intent(this, ViewPhotoActivity::class.java)
+            val myIntent = Intent(this, ViewPhotoActivity::class.java)
             startActivity(myIntent)
         }
 
@@ -33,32 +33,33 @@ class MainActivity : AppCompatActivity() {
         btnCall.setOnClickListener {
 
             // 권한 승인 여부에 따른, 행동 방안을 작성해서 => pl변수에 담아두자
-            val pl = object:PermissionListener{
-                
+            val permissionListener = object : PermissionListener {
+
                 override fun onPermissionGranted() {
                     //승인이 ok일때 할 행동
                     val myUri = Uri.parse("tel:010-1234-5678")
-                    val myIntent =  Intent(Intent.ACTION_CALL, myUri)
+                    val myIntent = Intent(Intent.ACTION_CALL, myUri)
                     startActivity(myIntent)
                 }
-                
+
                 override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
                     //거절되었을때 할 행동
-                    Toast.makeText(this@MainActivity, "권한이 거절되어, 통화가 불가능합니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "권한이 거절되어, 통화가 불가능합니다", Toast.LENGTH_SHORT)
+                        .show()
 
                 }
             }
 
             // 실제 권한을 물어보자
             TedPermission.create()
-                .setPermissionListener(pl)
+                .setPermissionListener(permissionListener)
                 .setPermissions(Manifest.permission.CALL_PHONE)
                 .check()
         }
     }
-    
 
-    fun setValues(){
+
+    fun setValues() {
 
     }
 }
